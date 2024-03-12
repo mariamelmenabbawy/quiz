@@ -21,7 +21,7 @@ $exam_time=$row['time_in_min'];
     <div class="container mt-5">
 <div class="form-group">
             &#9997;
-            <label for="username"><i class="fas fa-pencil-alt"></i> New Exam Category</label>
+            <label for="ExamCategory"><i class="fas fa-pencil-alt"></i> New Exam Category</label>
             <input type="text" class="form-control" name="ExamCategory"
              placeholder="Add Exam Category" value="<?php echo $exam_category;?>"  >
              
@@ -42,7 +42,8 @@ $exam_time=$row['time_in_min'];
 </html>
 <?php
 if(isset($_POST['submitt'])){
-    mysqli_query($connect, "UPDATE exam_category SET category='{$_POST['ExamCategory']}', time_in_min='{$_POST['time']}'") or die(mysqli_error($connect));
+    mysqli_query($connect, "UPDATE exam_category SET category='{$_POST['ExamCategory']}', time_in_min='{$_POST['time']}' WHERE id='$id'") or die(mysqli_error($connect));
+
 
 ?>
    <script type="text/javascript">

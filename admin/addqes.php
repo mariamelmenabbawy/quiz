@@ -7,37 +7,23 @@ include '../server.php' ;
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="style.css">
 <title> Add Exam </title>
 </head>
 <body > <div class="col-lg-6">
-    <div class="page_title">Add</div>
+<div class="exam-category-header">
+    <h5>Select Exam Category To Add And Edit Questions</h5>
+</div>
+
     <form action="" method="POST">
     <div class="container mt-5">
-<div class="form-group">
-            &#9997;
-            <label for="username"><i class="fas fa-pencil-alt"></i> New Exam Category</label>
-            <input type="text" class="form-control" name="ExamCategory"
-             placeholder="Add Exam Category"   >
-             
-        </div>
-        <div class="form-group">&#x23F3;
-            <label for="time"><i class="fas fa-hourglass"></i>Time In Minutes:</label>
-            <input type="text" class="form-control" name="time" placeholder="Exam Time in Min.">
-             
-        </div>
-        <div class="form-group">
-        <input type="submit"class="btn btn-primary" name="submitt"  value="Add Exam" >             
-        </div> </div></div></form>
-        <div class="col-lg-6"><div class="card">
-            <div class="card-header"><strong class="card-title">Exam Categories</strong></div>
-        <div class="card-body"><table border="1" class="table table-borded">
+         <table border="1" class="table table-borded">
         <thead>
             <tr>
             <th>#</th>
                 <th>Exam Name</th>
                 <th>Exam Time</th>
-                <th>Edit</th>
-                <th>Delete </th>
+                <th>Select</th>
             </tr>
         </thead>
         <?php 
@@ -52,8 +38,7 @@ include '../server.php' ;
                 <th scope="row"><?php echo $count;?></th>
                 <td><?php echo $rows["category"];?></td>
                 <td><?php echo $rows["time_in_min"];?></td>
-                <td><a href="edit.php?id=<?php echo $rows["id"];  ?>">edit</a></td>
-                <td><a href="delete.php?id=<?php echo $rows["id"];  ?>" >delete</a> </td>
+                <td><a href="select.php?id=<?php echo $rows["id"];  ?>" >Select</a> </td>
             </tr>
             <tr>
                
@@ -61,9 +46,8 @@ include '../server.php' ;
 
 <?php
 
-        }?>
-        
-            <!-- Add more rows as needed -->
+        }
+        ?>
         </tbody>
     </table></div> 
 </div></div> 
