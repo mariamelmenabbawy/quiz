@@ -33,7 +33,7 @@ if (empty($errors)) {
         if (!empty($row) && $row['password'] === $pass) {
             $_SESSION['username'] = $row['username'];
             $_SESSION['id'] = $row['id'];
-            header('Location: notes.php');
+            header('Location: select_exam.php');
             exit();
         } else {
             
@@ -46,4 +46,7 @@ if (empty($errors)) {
 else{
    include 'index.php';
 }
+
+
+
 ?>

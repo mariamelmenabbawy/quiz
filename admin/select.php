@@ -67,16 +67,55 @@ $exam_category=$rows["category"];
             <input type="text" class="form-control" name="theanswer"placeholder="Add Answer">
              
         </div>
-    
         <div class="form-group">
-        <input type="submit"class="btn btn-primary" name="submitt" value="Add Question" >             
-        </div> </div></div></form>
+        <input type="submit"class="btn btn-primary" name="submitt"  value="Add Question" >
+             
+        </div>
 
+          
+        <div class="card-body">
+            <table border="1" class="table table-borded">
+        <thead>
+            <tr>
+            <th>#no.</th>
+                <th>question</th>
+                <th>op1</th>
+                <th>op2</th>
+                <th>op3</th>
+                <th>op4</th>
+                <th>edit</th>
+                <th>delete</th>
+            </tr>
+        </thead>
+        <?php 
+     $res=mysqli_query($connect,"SELECT * FROM questions ORDER BY num ASC") or die(mysqli_error($connect));
+    while($rows=mysqli_fetch_array($res)){
+        echo "<tr>";
+        echo "<td>" . $rows["num"] . "</td>";
+        echo "<td>" . $rows["ques"] . "</td>";
+        echo "<td>" . $rows["op1"] . "</td>";
+        echo "<td>" . $rows["op2"] . "</td>";
+        echo "<td>" . $rows["op3"] . "</td>";
+        echo "<td>" . $rows["op4"] . "</td>";
+        echo "<td><a href=\"edit_option.php?id=" . $rows['id'] . "\">edit</a></td>";
+        echo "<td><a href=\"delete_option.php?id=" . $rows['id'] . "\">delete</a></td>";
+
+        echo "</tr>";
+        
+    }
+
+?>
+
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
 <?php
 
         
         ?>
-        </tbody>
+       
     </table></div> 
 </div></div> 
 </body>
@@ -85,22 +124,24 @@ $exam_category=$rows["category"];
 if(isset($_POST['submitt'])){
 $loop=0;
 $count=0;
+
+
+
+
+$res=mysqli_query($connect, "SELECT * FROM questions WHERE category='$exam_category' ORDER BY id ASC") or die(mysqli_error($connect));
 $count=mysqli_num_rows($res);
-
-
-    mysqli_query($connect, "SELECT *FROM questions WHERE category='$exam_category' order by id Asc")or die(mysqli_error($connect));
-    if($count==0){
+    if($count == 0 ){
 
     }
     else{
-        while($rows=mysqli_fetch_array()){
+        while($rows=mysqli_fetch_array($res)){
             $loop++;
-            mysqli_query($connect,"UPDATE questions set num='$loop'WHERE id=$rows[id]");
+            mysqli_query($connect,"UPDATE questions set num='$loop' WHERE id='$rows[id]'");
         }
     }
     $loop++;
     mysqli_query($connect, "INSERT INTO questions VALUES (NULL, '$loop', '$_POST[question]', '$_POST[op1]', '$_POST[op2]', '$_POST[op3]', '$_POST[op4]', '$_POST[theanswer]', '$exam_category')") or die(mysqli_error($connect));
-
+   
 
 ?>
 

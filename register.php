@@ -66,7 +66,8 @@ if (isset($_POST['submit'])) {
 
         $sql = "INSERT INTO users(username, password, email, birthday) VALUES('$username', '$password', '$email', '$birthday')";
         mysqli_query($connect, $sql);
-        header('location: notes.php');
+        header('location: index.php');
+        exit();
     }
     else{
         include 'index2.php';
