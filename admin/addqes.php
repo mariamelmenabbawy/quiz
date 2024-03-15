@@ -1,4 +1,4 @@
-<?php include '../header.php'; 
+<?php include 'headerr.php'; 
 include '../server.php' ;
 ?>
 <!DOCTYPE HTML>
@@ -12,7 +12,7 @@ include '../server.php' ;
 </head>
 <body > <div class="col-lg-6">
 <div class="exam-category-header">
-    <h5>Select Exam Category To Add And Edit Questions</h5>
+    <h5 style="color:  blue; font-family: Arial, sans-serif;">Select Exam Category To Add And Edit Questions</h5>
 </div>
 
     <form action="" method="POST">

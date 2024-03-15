@@ -1,4 +1,4 @@
-<?php include '../header.php'; 
+<?php include 'headerr.php'; 
 include '../server.php' ;  $id = $_GET["id"];
 $res=mysqli_query($connect,"SELECT * FROM exam_category where id=$id");
 while($row=mysqli_fetch_array($res)){

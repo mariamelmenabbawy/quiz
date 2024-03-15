@@ -1,5 +1,5 @@
 <?php
-include 'server.php';
+include 'D:\xampp---\htdocs\quizzz\server.php';
 ?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -17,32 +17,32 @@ include 'server.php';
             </button>
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav ">
-                    <li class="nav-item">
-                        <a class="navbar-brand text-white" href="select_exam.php">Select The Exam</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="navbar-brand text-white" href="old_exam_res.php">Last Results</a>
-                    </li>
                     
+                   
                     <li class="nav-item">
-                        <a class="navbar-brand text-white" href="logout.php">Logout</a>
+                        <a class="navbar-brand text-white" href="allres.php">
+                          ALL Results
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="navbar-brand text-white" href="addqes.php">Add & edit Questions </a>
                     </li>
                     <li class="nav-item">
-                        <a class="navbar-brand text-white" href="#">
-                            <span><?php session_start(); echo $_SESSION["username"]; ?></span>
-                            <i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
-                        </a>
+                        <a class="navbar-brand text-white" href="exam_category.php">Exam category </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="navbar-brand text-white" href="logoutt.php">Logout</a>
                     </li>
                 <div>
                     <ul>
                     <li class="breadcome-menu">
-                      <div id="countdowntimer" style="display:block; color:#87CEFA;">
+                      <div id="countdowntimer" style="display:block;">
 
                       </div>
                     </li>
-                    
+
                     </ul>
-                    
                 </div>
                     
                 </ul>
@@ -68,5 +68,3 @@ include 'server.php';
         xmlhttp.send(null);
     }
 </script>
-
-

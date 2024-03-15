@@ -61,7 +61,7 @@ include '../server.php' ;
                     }
                     else{
 
-                         header('Location: ../Q.php');
+                         header('Location: Q.php');
                     }
                 }
             
